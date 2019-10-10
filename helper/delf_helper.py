@@ -23,8 +23,10 @@ def GenerateCoordinates(h,w):
     '''generate coorinates
     Returns: [h*w, 2] FloatTensor
     '''
-    x = torch.floor(torch.arange(0, w*h) / w)
-    y = torch.arange(0, w).repeat(h)
+    #x = torch.floor(torch.arange(0, w*h) / w)
+    x = torch.floor((torch.arange(0, w*h) / w).float())
+    #y = torch.arange(0, w).repeat(h)
+    y = torch.arange(0, w).repeat(h).float()
 
     coord = torch.stack([x,y], dim=1)
     return coord
@@ -113,7 +115,7 @@ def GetDelfFeatureFromMultiScale(
     iou_thres,
     attn_thres,
     use_pca=False,
-    workers=8):
+    workers=1):
     '''GetDelfFeatureFromMultiScale
     warning: use workers = 1 for serving otherwise out of memory error could occurs.
     (because uwsgi uses multi-threads by itself.)

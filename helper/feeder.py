@@ -13,11 +13,11 @@ import torchvision.transforms as transforms
 import helper.delf_helper as delf_helper
 from train.delf import Delf_V1
 
-__DEBUG__ = False
+__DEBUG__ = True
 
 def __cuda__(x):
     if torch.cuda.is_available():
-        return x.cuda()
+        return x #x.cuda()
     else:
         return x
 
@@ -33,6 +33,7 @@ def __build_delf_config__(data):
     delf_config, _ = parser.parse_known_args()
     
     # print config.
+    print("This is feeder.py/_build_delf_config")
     state = {k: v for k, v in delf_config._get_kwargs()}
     print(state)
     return delf_config
@@ -50,7 +51,7 @@ class Feeder():
         self.top_k = feeder_config.get('TOP_K')
         self.target_layer = feeder_config.get('TARGET_LAYER')
         self.scale_list = feeder_config.get('SCALE_LIST')
-        self.workers = feeder_config.get('WORKERS')
+        self.workers = 8 #feeder_config.get('WORKERS')
 
         # load pytorch model
         print('load DeLF pytorch model...')
