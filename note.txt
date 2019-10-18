@@ -1,0 +1,8 @@
+
+
+10-17-2019
+
+- Pytorch version 4.0 work,  but with torch.backends.cudnn.benchmark=False
+( https://discuss.pytorch.org/t/thcudacheck-fail-file-pytorch-aten-src-thc-thcgeneral-cpp/31788/11 )
+
+- Pytorch version > 4.0 => might need to update code.

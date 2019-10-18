@@ -17,7 +17,7 @@ __DEBUG__ = True
 
 def __cuda__(x):
     if torch.cuda.is_available():
-        return x #x.cuda()
+        return x.cuda()
     else:
         return x
 
@@ -51,7 +51,7 @@ class Feeder():
         self.top_k = feeder_config.get('TOP_K')
         self.target_layer = feeder_config.get('TARGET_LAYER')
         self.scale_list = feeder_config.get('SCALE_LIST')
-        self.workers = 8 #feeder_config.get('WORKERS')
+        self.workers = feeder_config.get('WORKERS')
 
         # load pytorch model
         print('load DeLF pytorch model...')

@@ -36,7 +36,7 @@ def main():
     torch.manual_seed(config.manualSeed)
     if use_cuda:
         torch.cuda.manual_seed_all(config.manualSeed)
-        torch.backends.cudnn.benchmark = True           # speed up training.
+        torch.backends.cudnn.benchmark = False #True           # speed up training.
     
     # data loader
     from dataloader import get_loader

@@ -23,10 +23,10 @@ def GenerateCoordinates(h,w):
     '''generate coorinates
     Returns: [h*w, 2] FloatTensor
     '''
-    #x = torch.floor(torch.arange(0, w*h) / w)
-    x = torch.floor((torch.arange(0, w*h) / w).float())
-    #y = torch.arange(0, w).repeat(h)
-    y = torch.arange(0, w).repeat(h).float()
+    x = torch.floor(torch.arange(0, w*h) / w)
+    #x = torch.floor((torch.arange(0, w*h) / w).float())
+    y = torch.arange(0, w).repeat(h)
+    #y = torch.arange(0, w).repeat(h).float()
 
     coord = torch.stack([x,y], dim=1)
     return coord

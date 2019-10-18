@@ -4,6 +4,6 @@ docker run -it --rm --runtime=nvidia \
     -u 0 \
     -v /home/tung/playground:/home/tung/playground \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -p 9095:6015 -p 5011:5011 \
+    -p 9096:6016 -p 5016:5016 \
     -e NVIDIA_VISIBLE_DEVICES=7 -e CUDA_DEVICE_ORDER=PCI_BUS_ID \
-    pytorch/pytorch:1.1.0-cuda10.0-cudnn7.5-devel 
+    pytorch/pytorch:0.4.1-cuda9-cudnn7-devel

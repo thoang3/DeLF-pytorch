@@ -16,7 +16,7 @@ parser = argparse.ArgumentParser('delf')
 
 # Common options.
 parser.add_argument('--gpu_id', 
-                    default='4', 
+                    default='0', 
                     type=str, 
                     help='id(s) for CUDA_VISIBLE_DEVICES')
 parser.add_argument('--manualSeed', 
@@ -38,19 +38,19 @@ parser.add_argument('--stage',
                     type=str, 
                     help='target stage: finetune | keypoint')
 parser.add_argument('--train_path_for_pretraining', 
-                    default='../../data/landmarks/landmarks_full_train', 
+                    default='/home/tung/playground/data/google_landmark_v1/train', 
                     type=str)
 parser.add_argument('--val_path_for_pretraining', 
-                    default='../../data/landmarks/landmarks_full_val', 
+                    default='/home/tung/playground/data/google_landmark_v1/train', 
                     type=str)
 parser.add_argument('--train_path_for_finetuning', 
-                    default='../../data/landmarks/landmarks_clean_train', 
+                    default='/home/tung/playground/data/google_landmark_v1/train', 
                     type=str)
 parser.add_argument('--val_path_for_finetuning', 
-                    default='../../data/landmarks/landmarks_clean_val', 
+                    default='/home/tung/playground/data/google_landmark_v1/train', 
                     type=str)
 parser.add_argument('--workers', 
-                    default=20, 
+                    default=10, 
                     type=int,
                     help='number of data loading workers (default: 4)')
 # preprocessing
@@ -116,7 +116,7 @@ parser.add_argument('--val_batch_size',
                     type=int,
                     help='val batchsize (default: 16)')
 parser.add_argument('--ncls',
-                    default=586,
+                    default=14951,
                     type=int,
                     help='number of classes')
 parser.add_argument('--lr_decay',
