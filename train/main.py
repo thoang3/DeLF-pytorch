@@ -103,7 +103,8 @@ def main():
             val_loader = val_loader_ft
 
         solver.train('train', epoch, train_loader, val_loader)
-        solver.train('val', epoch, train_loader, val_loader)
+        if epoch % 10 == 0:
+            solver.train('val', epoch, train_loader, val_loader)
 
     print('Congrats! You just finished DeLF training.')
 

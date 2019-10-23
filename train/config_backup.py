@@ -34,20 +34,20 @@ parser.add_argument('--load_from',
                     help='from which experiment the model be loaded')
 # Datasets
 parser.add_argument('--stage', 
-                    default='keypoint', 
+                    default='keypoint', #'finetune', 
                     type=str, 
                     help='target stage: finetune | keypoint')
 parser.add_argument('--train_path_for_pretraining', 
-                    default='/home/tung/playground/data/hpatches-sequences-release', 
+                    default='/home/tung/playground/data/google_landmark_v1/train', 
                     type=str)
 parser.add_argument('--val_path_for_pretraining', 
-                    default='/home/tung/playground/data/hpatches-sequences-release', 
+                    default='/home/tung/playground/data/google_landmark_v1/train', 
                     type=str)
 parser.add_argument('--train_path_for_finetuning', 
-                    default='/home/tung/playground/data/hpatches-sequences-release', 
+                    default='/home/tung/playground/data/google_landmark_v1/train', 
                     type=str)
 parser.add_argument('--val_path_for_finetuning', 
-                    default='/home/tung/playground/data/hpatches-sequences-release', 
+                    default='/home/tung/playground/data/google_landmark_v1/train', 
                     type=str)
 parser.add_argument('--workers', 
                     default=10, 
@@ -80,11 +80,11 @@ parser.add_argument('--use_random_gamma_rescale',
                     help='apply gamma rescaling in range of [0.3535, 1.0]')
 # training parameters
 parser.add_argument('--finetune_epoch',
-                    default=10,
+                    default=30,
                     type=int,
                     help='number of total epochs for finetune stage.')
 parser.add_argument('--keypoint_epoch',
-                    default=10,
+                    default=30,
                     type=int,
                     help='number of total epochs for keypoint stage.')
 parser.add_argument('--lr',
@@ -116,7 +116,7 @@ parser.add_argument('--val_batch_size',
                     type=int,
                     help='val batchsize (default: 16)')
 parser.add_argument('--ncls',
-                    default=116,
+                    default=14951,
                     type=int,
                     help='number of classes')
 parser.add_argument('--lr_decay',
